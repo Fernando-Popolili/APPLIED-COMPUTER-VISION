@@ -50,3 +50,40 @@ if __name__ == "__main__":
     mostrarImagem(gray, "Imagem em escala de cinza")
     histograma(gray)
 
+#==============================================
+
+#Ajuste de brilho e contraste da imagem
+
+#==============================================
+
+def ajustarBrilhoContraste(imagem, alpha=1.0, beta=0):
+    '''
+    Alpha -> Controla o contraste da imagem
+    Beta -> Controla o brilho
+    '''
+    return cv2.convertScaleAbs(imagem, alpha=alpha, beta=beta)
+
+#==============================================
+
+#Equalização do histograma
+
+#==============================================
+
+def equalizar_histograma(imagem):
+    '''
+    Melhorar contraste global redistribuindo a intensidade dos pixels
+    '''
+    return cv2.equalizeHist(imagem)
+
+#==============================================
+
+#Equalização do histograma
+
+#==============================================
+
+def calcular_metricas(imagem):
+    brilho = imagem.mean() 
+    contraste = imagem.std()# metrica será observada a partir do desvio padrao
+
+    return brilho, contraste
+
